@@ -4,6 +4,8 @@ const client = new Discord.Client();
 const cron = require('cron');
 var CronJob = cron.CronJob;
 
+const id = '745065572055777391';
+
 client.once('ready', () => {
   console.log('Ready!');
 });
@@ -11,7 +13,7 @@ client.once('ready', () => {
 var training30HF = new CronJob(
   '30 17 * * Fri,Tue',
   function () {
-    const channel = client.channels.cache.get('745008014758772776');
+    const channel = client.channels.cache.get(id);
     channel.send('Holdfast Training in 30 minutes! Join teamspeak by then @everyone');
   },
   null,
@@ -22,7 +24,7 @@ var training30HF = new CronJob(
 var trainingHF = new CronJob(
   '00 18 * * Fri,Tue',
   function () {
-    const channel = client.channels.cache.get('745008014758772776');
+    const channel = client.channels.cache.get(id);
     channel.send('Holdfast Training has started! Join teamspeak @everyone');
   },
   null,
@@ -33,7 +35,7 @@ var trainingHF = new CronJob(
 var eventHF = new CronJob(
   '00 19 * * Fri,Tue',
   function () {
-    const channel = client.channels.cache.get('745008014758772776');
+    const channel = client.channels.cache.get(id);
     channel.send('Holdfast Event has started! Join teamspeak @everyone');
   },
   null,
@@ -44,7 +46,7 @@ var eventHF = new CronJob(
 var training30NW = new CronJob(
   '30 17 * * Sat',
   function () {
-    const channel = client.channels.cache.get('745008014758772776');
+    const channel = client.channels.cache.get(id);
     channel.send('Warband NW Training in 30 minutes! Join teamspeak by then @everyone');
   },
   null,
@@ -55,7 +57,7 @@ var training30NW = new CronJob(
 var trainingNW = new CronJob(
   '00 18 * * Sat',
   function () {
-    const channel = client.channels.cache.get('745008014758772776');
+    const channel = client.channels.cache.get(id);
     channel.send('Warband NW Training has started! Join teamspeak @everyone');
   },
   null,
@@ -66,7 +68,7 @@ var trainingNW = new CronJob(
 var eventNW = new CronJob(
   '00 19 * * Sat',
   function () {
-    const channel = client.channels.cache.get('745008014758772776');
+    const channel = client.channels.cache.get(id);
     channel.send('Warband NW Event has started! Join teamspeak @everyone');
   },
   null,
