@@ -15,7 +15,6 @@ client.once('ready', () => {
 client.on('message', async message => {
 
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-
   // We check to see who typed the message since they must be an admin
   const member = message.member;
 
@@ -23,9 +22,9 @@ client.on('message', async message => {
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
-
     // console.log(command);
 
+    // Allows for further commands to be added
     switch (command) {
       case 'detect': detectChannel(message.channel);
         break;
@@ -38,8 +37,7 @@ client.on('message', async message => {
 
 function detectChannel(channel) {
   id = channel.id;
-  console.log(`New id = ${id}`);
-
+  // console.log(`New id = ${id}`);
   channel.send('Channel detected! Announcements are good to go.');
 
   training30HF.start();
@@ -55,10 +53,7 @@ var training30HF = new CronJob(
   function () {
     const channel = client.channels.cache.get(id);
     channel.send('Holdfast Training in 30 minutes! Join teamspeak by then @everyone');
-  },
-  null,
-  false,
-  'America/Chicago'
+  }, null, true, 'America/Chicago'
 );
 
 var trainingHF = new CronJob(
@@ -66,10 +61,7 @@ var trainingHF = new CronJob(
   function () {
     const channel = client.channels.cache.get(id);
     channel.send('Holdfast Training has started! Join teamspeak @everyone');
-  },
-  null,
-  false,
-  'America/Chicago'
+  }, null, true, 'America/Chicago'
 );
 
 var eventHF = new CronJob(
@@ -77,10 +69,7 @@ var eventHF = new CronJob(
   function () {
     const channel = client.channels.cache.get(id);
     channel.send('Holdfast Event has started! Join teamspeak @everyone');
-  },
-  null,
-  false,
-  'America/Chicago'
+  }, null, true, 'America/Chicago'
 );
 
 var training30NW = new CronJob(
@@ -88,10 +77,7 @@ var training30NW = new CronJob(
   function () {
     const channel = client.channels.cache.get(id);
     channel.send('Warband NW Training in 30 minutes! Join teamspeak by then @everyone');
-  },
-  null,
-  true,
-  'America/Chicago'
+  }, null, true, 'America/Chicago'
 );
 
 var trainingNW = new CronJob(
@@ -99,10 +85,7 @@ var trainingNW = new CronJob(
   function () {
     const channel = client.channels.cache.get(id);
     channel.send('Warband NW Training has started! Join teamspeak @everyone');
-  },
-  null,
-  true,
-  'America/Chicago'
+  }, null, true, 'America/Chicago'
 );
 
 var eventNW = new CronJob(
@@ -110,10 +93,7 @@ var eventNW = new CronJob(
   function () {
     const channel = client.channels.cache.get(id);
     channel.send('Warband NW Event has started! Join teamspeak @everyone');
-  },
-  null,
-  true,
-  'America/Chicago'
+  }, null, true, 'America/Chicago'
 );
 
 // Login to discord using app token, defaults to process.env.DISCORD_TOKEN
