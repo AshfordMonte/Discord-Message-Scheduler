@@ -6,7 +6,7 @@ var CronJob = cron.CronJob;
 
 const prefix = '!';
 
-var id = '';
+var id = '745065572055777391';
 
 client.once('ready', () => {
   console.log('Ready!');
@@ -51,7 +51,7 @@ function detectChannel(channel) {
 }
 
 var training30HF = new CronJob(
-  '54 4 * * Fri,Tue',
+  '30 17 * * Fri,Tue',
   function () {
     const channel = client.channels.cache.get(id);
     channel.send('Holdfast Training in 30 minutes! Join teamspeak by then @everyone');
