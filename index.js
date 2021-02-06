@@ -1,23 +1,28 @@
 require('dotenv').config();
 const Discord = require('discord.js');
 var client = new Discord.Client();
+
 const cron = require('cron');
 var CronJob = cron.CronJob;
 
 const prefix = '!';
 
-var id = '745065572055777391';
+var id = '745065572055777391'; // server id
+
+var eventId = '802375937684930621' //friday-event channel
+var fridayRole = '754317059751542815'; //friday event role
 
 client.once('ready', () => {
+  eventReminder.start();
   console.log('Ready!');
 });
 
 client.on('message', async message => {
 
   if (!message.content.startsWith(prefix) || message.author.bot) return;
+
   // We check to see who typed the message since they must be an admin
   const member = message.member;
-
   if (member.roles.cache.some(role => role.name === 'Officers/NCOs')) {
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
@@ -95,6 +100,14 @@ var eventNW = new CronJob(
     channel.send('Warband NW Event has started! Join teamspeak @everyone');
   }, null, true, 'America/Chicago'
 );
+
+var eventReminder = new CronJob(
+  '15 18 * * Fri',
+  function () {
+    const channel = client.channels.cache.get(eventId);
+    channel.send('<@&' + fridayRole + '> Sign up by 7:40 EST please!\n\n`Regiment: \nExpected Numbers(min/max):` \n\nhttps://twitter.com/FridaySailer/status/1357675844336930819?s=20')
+  }, null, true, 'America/Chicago'
+)
 
 // Login to discord using app token, defaults to process.env.DISCORD_TOKEN
 client.login();
