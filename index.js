@@ -14,6 +14,7 @@ var fridayRole = '754317059751542815'; //friday event role
 
 client.once('ready', () => {
   eventReminder.start();
+  eventReminder2.start();
   console.log('Ready!');
 });
 
@@ -106,6 +107,14 @@ var eventReminder = new CronJob(
   function () {
     const channel = client.channels.cache.get(eventId);
     channel.send('<@&' + fridayRole + '> Sign up by 7:40 EST please!\n\n`Regiment: \nExpected Numbers(min/max):` \n\nhttps://twitter.com/FridaySailer/status/1357675844336930819?s=20')
+  }, null, true, 'America/Chicago'
+)
+
+var eventReminder2 = new CronJob(
+  '40 18 * * Fri',
+  function () {
+    const channel = client.channels.cache.get(eventId);
+    channel.send('<@&' + fridayRole + '> Last call for numbers/updates!')
   }, null, true, 'America/Chicago'
 )
 
