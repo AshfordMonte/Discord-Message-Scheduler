@@ -15,8 +15,13 @@ var fridayRole = '754317059751542815'; //friday event role
 client.once('ready', () => {
   eventReminder.start();
   eventReminder2.start();
+  setStatus();
   console.log('Ready!');
 });
+
+function setStatus() {
+  client.user.setActivity('Holdfast: Nations At War');
+}
 
 client.on('message', async message => {
 
