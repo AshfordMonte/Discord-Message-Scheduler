@@ -60,29 +60,29 @@ function detectChannel(channel) {
 }
 
 //Friday and Tuesday events
-var training30HF = new CronJob(
-  '30 17 * * Fri', //Fri,Tue
-  function () {
-    const channel = client.channels.cache.get(id);
-    channel.send('Holdfast Training in 30 minutes! Join teamspeak by then @everyone');
-  }, null, true, 'America/Chicago'
-);
+// var training30HF = new CronJob(
+//   '30 17 * * Fri', //Fri,Tue
+//   function () {
+//     const channel = client.channels.cache.get(id);
+//     channel.send('Holdfast Training in 30 minutes! Join teamspeak by then @everyone');
+//   }, null, true, 'America/Chicago'
+// );
 
-var trainingHF = new CronJob(
-  '00 18 * * Fri', //Fri,Tue
-  function () {
-    const channel = client.channels.cache.get(id);
-    channel.send('Holdfast Training has started! Join teamspeak @everyone');
-  }, null, true, 'America/Chicago'
-);
+// var trainingHF = new CronJob(
+//   '00 18 * * Fri', //Fri,Tue
+//   function () {
+//     const channel = client.channels.cache.get(id);
+//     channel.send('Holdfast Training has started! Join teamspeak @everyone');
+//   }, null, true, 'America/Chicago'
+// );
 
-var eventHF = new CronJob(
-  '00 19 * * Fri', //Fri,Tue
-  function () {
-    const channel = client.channels.cache.get(id);
-    channel.send('Holdfast Event has started! Join teamspeak @everyone');
-  }, null, true, 'America/Chicago'
-);
+// var eventHF = new CronJob(
+//   '00 19 * * Fri', //Fri,Tue
+//   function () {
+//     const channel = client.channels.cache.get(id);
+//     channel.send('Holdfast Event has started! Join teamspeak @everyone');
+//   }, null, true, 'America/Chicago'
+// );
 
 // Saturday Event
 // var training30NW = new CronJob(
@@ -109,21 +109,21 @@ var eventHF = new CronJob(
 //   }, null, true, 'America/Chicago'
 // );
 
-var eventReminder = new CronJob(
-  '15 18 * * Fri',
-  function () {
-    const channel = client.channels.cache.get(eventId);
-    channel.send('<@&' + fridayRole + '> Sign up by 7:40 EST please!\n\n`Regiment: \nExpected Numbers(min/max):` \n\nhttps://twitter.com/FridaySailer/status/1357675844336930819?s=20')
-  }, null, true, 'America/Chicago'
-)
+// var eventReminder = new CronJob(
+//   '15 18 * * Fri',
+//   function () {
+//     const channel = client.channels.cache.get(eventId);
+//     channel.send('<@&' + fridayRole + '> Sign up by 7:40 EST please!\n\n`Regiment: \nExpected Numbers(min/max):` \n\nhttps://twitter.com/FridaySailer/status/1357675844336930819?s=20')
+//   }, null, true, 'America/Chicago'
+// )
 
-var eventReminder2 = new CronJob(
-  '40 18 * * Fri',
-  function () {
-    const channel = client.channels.cache.get(eventId);
-    channel.send('<@&' + fridayRole + '> Last call for numbers/updates!')
-  }, null, true, 'America/Chicago'
-)
+// var eventReminder2 = new CronJob(
+//   '40 18 * * Fri',
+//   function () {
+//     const channel = client.channels.cache.get(eventId);
+//     channel.send('<@&' + fridayRole + '> Last call for numbers/updates!')
+//   }, null, true, 'America/Chicago'
+// )
 
 // Login to discord using app token, defaults to process.env.DISCORD_TOKEN
 client.login();
